@@ -8,7 +8,15 @@
   - [What needs to be done afterwards](#what-needs-to-be-done-afterwards)
   - [Problem Solving](#problem-solving)
 
-## CI-Upgrader explained
+## CI-Upgrader Explained
+
+Wofür ist der Upgrader gedacht, wie soll erhelfen, 
+für wen ist der Upgrader gedacht, was kann er/was nicht, Anpassungen notwendig nach Upgrade
+
+Wie funktioniert der Upgrader
+- in vier Teile aufgebaut (Installation, Kopieren, Bearbeiten, UpgradeLog)
+- kenjishelper
+
 
 
 ## Before the Upgrade
