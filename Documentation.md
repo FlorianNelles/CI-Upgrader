@@ -25,7 +25,7 @@ Check if all these requirements are met:
 
 - Windows system (Linux and macOS not supported)
 - Composer has to be installed on your system
-  - To check if Composer is installed, open 'CMD' and enter 'composer'
+  - To check if Composer is installed, open 'CMD' and enter `composer`
   - If the command 'composer' was not found, its not installed
   - In this case, open [GetComposer](https://getcomposer.org/) and follow the instructions to install Composer
 - Java ?
@@ -45,11 +45,20 @@ Check if all these requirements are met:
 
 ## Run CI-Upgrader
 
+jar und exe, eingabe pfad und name
 
 ## After the Upgrade
 
+check upgradelog 
 
 ### What needs to be done afterwards
 
+auflistung
+
+doku kenjishelper und codeigniter Upgrade Guide
+
+falls man für einge klassen kenjis helper nicht benutzen will, use statement löschen und manuell in ci4 überführen
 
 ### Problem Solving
+
+production = 1
