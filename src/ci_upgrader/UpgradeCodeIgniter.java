@@ -44,7 +44,7 @@ public class UpgradeCodeIgniter {
 
 //----- ###  |CREATE UPGRADELOG|  ###
 //      In every class is a method, which will create a part of the UpgradeLog and returns a String. At the end the UpgradeLog will be created, by putting
-//      all Strings together. This UpgradeLog will contain all relevant informations to the upgrade process.
+//      all Strings together. This UpgradeLog will contain all relevant informations of the upgrade process.
 //----- The UpgradeLog and the directory of the new project will open automatically.
 
         UpgradeLog log = new UpgradeLog();
