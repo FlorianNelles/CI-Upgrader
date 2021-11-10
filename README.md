@@ -1,28 +1,37 @@
 # CI-Upgrader
 
 The CI-Upgrader will help you to upgrade your CodeIgniter 3 project to CodeIgniter 4.
+To do this, the CI-Upgrader tranfers a lot of CI3 files and code into CI4 Syntax, but takes also usage 
+of the [ci3-to-4-upgrader-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper) 
+by Kenji Suzuka. This upgrade helper provides interfaces for common use cases in CodeIgniter, to make them 
+compatible and executable in CI4. 
 
-To do this, these tasks are carried out automatically:
+!!!todo!!!
 
-- Installation
+So this CI-Upgrader is
+
+Also you have the opportunity to remove kenjis helper 
+
+
+---
+
+These following tasks are carried out automatically by CI-Upgrader:
+
+- **Installation**
   - Installs a new CI4 project in the same directory as the CI3 project
-  - The installation includes also phpunit and 
-  [ci3-to-4-upgrader-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper) by Kenji Suzuka
-- Copy Files
+  - The installation includes also phpunit and kenjis upgrade-helper
+- **Copy Files**
   - Copies all relevant directories and files from the old CI3 to the new CI4 project
-- Edit Files
-  - For this, the CI-Upgrader takes usage of ci3-to-4-upgrader-helper
-    - test
-    - test
-    - test
-  - test
-  - test
-- Create UpgradeLog
-  - This created file shows all  
+- **Edit Files**
+  - Convert CI3 file into CI4 syntax (Config, Languages, Migrations, Routes)
+  - Use kenjis upgrade-helper to make CI3 code compatible (Controllers, Models, Libraries)
+- **Create UpgradeLog**
+  - This created file contains all informations about the upgrade process and all tasks the CI-Upgrader has done
 
-**But** the CI-Upgrader is **not** able to transfer all of your code to the new CodeIgniter 4 project, so 
-some manually adjustment have to be done afterwards.
-Thats because CodeIgniter projects can be very individual, specially with own created Libraries, Classes and Functions. 
+
+**However** the CI-Upgrader is **not** able to transfer all of your code into CodeIgniter 4 without errors.
+So some manually adjustment has to be done afterwards.
+Thats because there are a lot of changes between CI3 and CI4 and CodeIgniter projects can be very individual, specially with own created Libraries, Classes and Functions. 
 
 For more informations about the CI-Upgrader and the adjustment that have to be done 
 after the upgrade, check out the [Documentation](https://github.com/FlorianNelles/CI-Upgrader/blob/main/Documentation.md).
