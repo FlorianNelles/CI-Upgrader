@@ -23,7 +23,7 @@ Wie funktioniert der Upgrader
 
 Check if all these requirements are met:
 
-- Windows system (Linux and macOS not supported)
+- Windows system (Linux and macOS **not** supported)
 - Composer has to be installed on your system
   - To check if Composer is installed, open 'CMD' and enter `composer`
   - If the command 'composer' was not found, its not installed
