@@ -221,7 +221,7 @@ CodeIgniter [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installa
 
 ---
 
-### Cookies
+### Input/Incoming Request Class
 Cookie Anpassen, Funktionen, Aufrufe, Load?
 
 ---
