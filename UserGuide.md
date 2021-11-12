@@ -118,7 +118,7 @@ Views are still working
 2. Move **_.htaccess_** and _**index.php**_ form public to root directory. Also edit _**index.php**_
 ```php
     [Line 20]   $pathsConfig = FCPATH . '../app/Config/Paths.php';
-    to
+ to
     [Line 20]   $pathsConfig = FCPATH . '/app/Config/Paths.php';
 ```
 
@@ -156,10 +156,8 @@ Instead of this, you have to use CI4 Localization:
 Best way to load Language Service and to set Locale is in every Controllers Constructor or globally 
 in BaseController (If all Controllers extend BaseController).
 
-
-- Echo Language Lines
-
-Filename in lang lines (Views and Controller), 
+CI-Upgrader edited every Language Line in Controllers and Views automatically to `lang('FILENAME.message')`. 
+All you have to do is replace `FILENAME` with the name of the Language File, which has to be loaded.
 
 ---
 ### Database 
@@ -195,13 +193,13 @@ If you use them, you have to change it to CI4 Query Builder ([User Guide](https:
 
 Example:
 
-````
+```php
    $query = $this->db->select('title')
                      ->from('News')
                      ->where('id', $id)
                      ->group_by('created_at')
                      ->limit(10,20)
-                     get();                   
+                     ->get();                   
 to
    $db = \Config\Database::connect();
    $builder = $db->table('News');
@@ -210,7 +208,7 @@ to
                      ->groupBy('created_at')
                      ->limit(10,20)
                      ->get();
-````
+```
 
 ---
 
