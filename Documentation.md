@@ -1,23 +1,12 @@
 # Documentation CI-Upgrader
 
 ## Tabel of Contents
-- [CI-Upgrader explained](#ci-upgrader-explained)
 - [Before the Upgrade](#before-the-upgrade)
 - [Run CI-Upgrader](#run-ci-upgrader)
 - [After the Upgrade](#after-the-upgrade)
   - [What needs to be done afterwards](#what-needs-to-be-done-afterwards)
   - [Problem Solving](#problem-solving)
-
-## CI-Upgrader Explained
-
-Wofür ist der Upgrader gedacht, wie soll erhelfen, 
-für wen ist der Upgrader gedacht, was kann er/was nicht, Anpassungen notwendig nach Upgrade
-
-Wie funktioniert der Upgrader
-- in vier Teile aufgebaut (Installation, Kopieren, Bearbeiten, UpgradeLog)
-- kenjishelper
-
-
+  
 
 ## Before the Upgrade
 
@@ -26,7 +15,7 @@ Check if all these requirements are met:
 - Windows system (Linux and macOS **not** supported)
 - Composer has to be installed on your system
   - To check if Composer is installed, open 'CMD' and enter `composer`
-  - If the command 'composer' was not found, its not installed
+  - If the command 'composer' was not found, it´s not installed
   - In this case, open [GetComposer](https://getcomposer.org/) and follow the instructions to install Composer
 - Java ?
 - Executable CodeIgniter 3 project, that you want to upgrade to CodeIgniter 4
@@ -52,13 +41,13 @@ There are to ways to start CI-Upgrader:
 
 - **.exe:** Just doubleclick on ci-upgrader.exe  
 
-- **.jar:** Open 'CMD'  &#8594; Navigate to the folder were you saved ci-upgrader.jar &#8594; Enter `java -jar ci-upgrader.jar`
+- **.jar:** Open 'CMD'  &#8594; Navigate to the location you saved 'ci-upgrader.jar' &#8594; Enter `java -jar ci-upgrader.jar`
 
 ( If its not working, try 'Run as administrator' )
 
 ### Step 2: Enter Path to your CodeIgniter 3 Project
 
-The Path has to be in this format: Drive\Path\To\Your\CI3_Project (Example: C:\xampp\htdocs\projectname)
+The Path has to be in this format: `Drive\Path\To\Your\CI3_Project` (Example: `C:\xampp\htdocs\projectname`)
 
 Best way to get the path: Open Windows Explorer &#8594;  Navigate to your CI3 project that you want 
 to upgrade &#8594; Copy path from address bar 
@@ -93,19 +82,63 @@ UpgradeLog will show you all relevant informations about the upgrade process and
 has executed:
 - Location of your CI3 and new CI4 project
 - Which files and directories were copied (with path)
-- Which lines were edited, added or removed from which file
+- Which lines were edited, added or removed in which file
 
-It is highly recommended to take a look on the UpgradeLog, so you have a better understanding
-on what this tool has done during the upgrade and what you have to do afterwards.
+It is highly recommended to take a look on the UpgradeLog, because it gives you a better understanding
+on what this tool has done during the upgrade and what you have to do afterwards. You should also check
+out the official [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_4xx.html) 
+from CodeIgniter and the documentation of Kenjis Suzukas 
+[upgrade-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md).
 
 ### What needs to be done afterwards
 
-auflistung
+#### Base URL
+baseurl, in app.php, public aus url entfernen, aufrufe von baseurl im project
 
-doku kenjishelper und codeigniter Upgrade Guide
+#### Language, Localization
+language, Filename in lang lines (Views and Controller), $language load + setlocal einsetzten da 
+$this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn 
+alle Controller diese erweitern
 
-falls man für einge klassen kenjis helper nicht benutzen will, use statement löschen und manuell in ci4 überführen
+#### Database Migrations
+Databse Migration durchführen: evt neue Database anlegen und in Database.php anpassen
+cmd -> zum CI4-Projektordner navigieren -> php spark migrate
+
+#### Databse Seeder
+Databse Seeder: SeederFiles erstellen und ausführen (php spark db:seed SeederName)nach CI4 Dokumentation
+
+#### Working with Databse, Query Builder
+Working with database; funktionen welche nicht funktinieren auflisten, $db = config... einfügen je nach funktion
+
+#### Pagination
+Pagination manuell überführen (mit kenjis Anleitung oder UPgrade Guide, falls auf kenjis verzichtet)
+
+#### Cookies
+Cookie Anpassen, Funktionen, Aufrufe, Load?
+
+#### Own created Files, Classes etc.
+Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell kopieren
+
+### Extend your project
+
+ci3 und ci4 code möglich
+
+### Remove Upgrade-Helper by Kenji Suzuka
+
+use statement entfernen; manuell in ci4 überführen (upgrade guide)
+
+kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
 
 ### Problem Solving
 
-production = 1
+Config/Boot/production.php -> value =1 (Sonst Meldung whoops wenn Errors auftreten, was nach
+Upgrade erstmal wahrscheinlich ist; Daher während Anpassungen auf 1 stellen)
+
+assets files falls nicht gefunden und kopiert
+
+View Parser funktionieren vollständig mit Kenjishelper, allerdings funktioniert php 		
+Code in Views nicht, wenn parse genutzt wird, bessere Alternative in CI4
+
+redirect Aufrufe anpassen(code entfernen?)
+
+error files, show_error
