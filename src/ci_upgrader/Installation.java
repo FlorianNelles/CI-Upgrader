@@ -211,7 +211,7 @@ public class Installation {
                 "################################################################################\n" +
                 "This Upgrade Log sums up all adjustment that were accomplished by the CI-Upgrader. \n\n";
 
-        upgradelog = upgradelog + "SECTIONS: \n1. INSTALLATION\n2. COPIED DIRECTORIES AND FILES\n3. EDITED FILES\n4. WHAT TO DO AFTER CI-UPGRADER\n5. SOLVING PROBLEMS";
+        upgradelog = upgradelog + "SECTIONS: \n1. INSTALLATION\n2. COPIED DIRECTORIES AND FILES\n3. EDITED FILES\n4. WHAT TO DO AFTER CI-UPGRADER";
 
         upgradelog = upgradelog + "\n\n################################################################################\n";
 
