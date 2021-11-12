@@ -4,11 +4,15 @@
 - [Before the Upgrade](#before-the-upgrade)
 - [Run CI-Upgrader](#run-ci-upgrader)
 - [After the Upgrade](#after-the-upgrade)
-  - [What needs to be done afterwards](#what-needs-to-be-done-afterwards)
+  - [Base URL](#base-url)
+  - [Language, Localization](#)
+  - [Database](#database)
+  - [Pagination](#)
+  - [Cookies](#)
+  - [Own created Files, Classes etc.](#)
   - [Extend your Project](#extend-your-project)
   - [Reomve Upgrader-Helper by Kenjis Suzuka](#remove-upgrade-helper-by-kenji-suzuka)
-  - [Problem Solving](#problem-solving)
-  
+  - [Solving Problems](#solving-problems)
 
 ## Before the Upgrade
 
@@ -100,9 +104,9 @@ out the official [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/ins
 from CodeIgniter and the documentation of Kenjis Suzukas 
 [upgrade-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md).
 
-### What needs to be done afterwards
 
-- #### Base URL
+
+### Base URL
 Depending on your server settings, you have to adjust your BaseURL in **_App/Config/App.php_**
 
     [Line 26]   public $baseURL = 'http://localhost/newprojectname';
@@ -123,14 +127,14 @@ Views are still working
 
 ---
 
-- #### Language, Localization
+### Language, Localization
 language, Filename in lang lines (Views and Controller), $language load + setlocal einsetzten da 
 $this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn 
 alle Controller diese erweitern
 
 ---
 
-- #### Database 
+### Database 
 **Note:** CI-Upgrader takes your database settings from your old CI3 project and transfers them into CI4 _**App/Config/Database.php**_,
 so your new project is connected to the same database by default. You can easily change this settings in _**Database.php**_ if you want.
 
@@ -147,7 +151,7 @@ More informations: CodeIgniter [User Guide](https://codeigniter4.github.io/userg
 **Note:** If you used in CI3 your own created Controller _**Migrate.php**_ to run Migrations, it is no
 longer needed in most cases. In case you still want to use this Controller, you have convert it by yourself.
 
-- #### Seeder
+- #### Seeding
 
 CodeIgniter 3 has no Seeder Class, so you had to find your onw way to create Seeder files and to run them.
 In contrast to this CodeIgniter 4 provides an own Class for Seeder and you should use it.
@@ -156,22 +160,46 @@ In contrast to this CodeIgniter 4 provides an own Class for Seeder and you shoul
 2. Open 'CMD'  &#8594;  Navigate to your project location
 3. Enter `> php spark db:seed SeederName`
 
-- #### Working with Databse, Query Builder
-Working with database; funktionen welche nicht funktinieren auflisten, $db = config... einfügen je nach funktion
+- #### Query Builder
+
+These three CI3 Query functions are **not** supported by Kenjis Suzuka Upgrade-Helper and will not run in CI4:
+
+`group_by()`, `limit()` and  `update()`
+
+If you use them, you have to change it to CI4 Query Builder ([User Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_database.html)).
+
+Example:
+
+````
+        $query = $this->db->select('title')
+                          ->from('News')
+                          ->where('id', $id)
+                          ->group_by('created_at')
+                          ->limit(10,20)
+                          get();                   
+to
+        $db = \Config\Database::connect();
+        $builder = $db->table('News');
+        $query = $builder->select('title')
+                          ->where('id', $id)
+                          ->groupBy('created_at')
+                          ->limit(10,20)
+                          ->get();
+````
 
 ---
 
-- #### Pagination
+### Pagination
 Pagination manuell überführen (mit kenjis Anleitung oder UPgrade Guide, falls auf kenjis verzichtet)
 
 ---
 
-- #### Cookies
+### Cookies
 Cookie Anpassen, Funktionen, Aufrufe, Load?
 
 ---
 
-- #### Own created Files, Classes etc.
+### Own created Files, Classes etc.
 Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell kopieren
 
 ---
@@ -194,7 +222,7 @@ kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
 
 ---
 
-### Problem Solving
+### Solving Problems
 
 - #### Config Production
 Config/Boot/production.php -> value =1 (Sonst Meldung whoops wenn Errors auftreten, was nach
