@@ -38,7 +38,7 @@ Thats because there are a lot of new things in CI4, like different application s
 Also CodeIgniter projects can be very individual, specially with own created Libraries, Classes and Functions. 
 
 For more informations about CI-Upgrader and the adjustment that have to be done 
-after the upgrade, check out the [Documentation](https://github.com/FlorianNelles/CI-Upgrader/blob/main/Documentation.md).
+after the upgrade, check out [User Guide](https://github.com/FlorianNelles/CI-Upgrader/blob/main/UserGuide.md).
 
 ## Requirements
 - Executable CodeIgniter 3 project
