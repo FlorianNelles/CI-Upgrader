@@ -16,7 +16,7 @@ public class UpgradeLog {
             log.createNewFile();
             System.out.println("File created: " + log.getName());
 
-            String upgradelog = loginstall + logcopy + logedit + getLogAfterUpgrade() + getLogProblemSolving();
+            String upgradelog = loginstall + logcopy + logedit + getLogAfterUpgrade();
 
             FileWriter myWriter = new FileWriter(log);
             myWriter.write(upgradelog);
@@ -33,24 +33,11 @@ public class UpgradeLog {
 
         afterupgrade = afterupgrade + "\n################################################################################\n\n";
 
-        afterupgrade = afterupgrade + "Read docu of codeigniter upgrade and kenjis upgrade helper docu\n\n" +
-                                    "Check base_url in config/app.php; .env and .htaccess file \n\n";
-
-        afterupgrade = afterupgrade + "todo\n\n";
-
-        afterupgrade = afterupgrade + "################################################################################\n";
+        afterupgrade = afterupgrade + "Check out the documentation of CI-Upgrader. Here you will find all informations about the tasks you have to do after the upgrade. " +
+                "\n(https://github.com/FlorianNelles/CI-Upgrader/blob/main/Documentation.md#after-the-upgrade)\n";
 
         return afterupgrade;
     }
 
-    public String getLogProblemSolving(){
-        String problemsolving = "|-----| 5. SOLVING PROBLEMS |-----|";
-
-        problemsolving = problemsolving + "\n################################################################################\n\n";
-
-        problemsolving = problemsolving + "todo";
-
-        return problemsolving;
-    }
 
 }
