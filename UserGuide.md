@@ -1,4 +1,4 @@
-# Documentation CI-Upgrader
+# User Guide CI-Upgrader
 
 ## Tabel of Contents
 - [Before the Upgrade](#before-the-upgrade)
@@ -130,16 +130,31 @@ alle Controller diese erweitern
 
 ---
 
-- #### Database Migrations
-Databse Migration durchführen: evt neue Database anlegen und in Database.php anpassen
-cmd -> zum CI4-Projektordner navigieren -> php spark migrate
+- #### Database 
+**Note:** CI-Upgrader takes your database settings from your old CI3 project and transfers them into CI4 _**App/Config/Database.php**_,
+so your new project is connected to the same database by default. You can easily change this settings in _**Database.php**_ if you want.
 
----
+- #### Migrations
 
-- #### Databse Seeder
-Databse Seeder: SeederFiles erstellen und ausführen (php spark db:seed SeederName)nach CI4 Dokumentation
+All Migrations files were transferred into CI4 syntax by CI-Upgrader. To run Migrations, all you have to do:
 
----
+1. Open 'CMD'  &#8594;  Navigate to your project location
+2. Enter `> php spark migrate`
+
+More informations: CodeIgniter [User Guide](https://codeigniter4.github.io/userguide/dbmgmt/migration.html)
+
+
+**Note:** If you used in CI3 your own created Controller _**Migrate.php**_ to run Migrations, it is no
+longer needed in most cases. In case you still want to use this Controller, you have convert it by yourself.
+
+- #### Seeder
+
+CodeIgniter 3 has no Seeder Class, so you had to find your onw way to create Seeder files and to run them.
+In contrast to this CodeIgniter 4 provides an own Class for Seeder and you should use it.
+
+1. Create new Seeder files with CI4 Seeder Class and transfer your data ([User Guide](https://codeigniter4.github.io/userguide/dbmgmt/seeds.html))
+2. Open 'CMD'  &#8594;  Navigate to your project location
+3. Enter `> php spark db:seed SeederName`
 
 - #### Working with Databse, Query Builder
 Working with database; funktionen welche nicht funktinieren auflisten, $db = config... einfügen je nach funktion
@@ -165,6 +180,10 @@ Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell 
 
 ci3 und ci4 code möglich
 
+- #### Develper Mode
+
+.env
+
 ---
 
 ### Remove Upgrade-Helper by Kenji Suzuka
@@ -172,12 +191,6 @@ ci3 und ci4 code möglich
 use statement entfernen; manuell in ci4 überführen (upgrade guide)
 
 kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
-
----
-
-### Develper Mode
-
-.env
 
 ---
 
