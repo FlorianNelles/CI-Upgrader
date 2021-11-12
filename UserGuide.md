@@ -104,7 +104,9 @@ from CodeIgniter and the documentation of Kenjis Suzukas
 ### Base URL
 Depending on your server settings, you have to adjust your BaseURL in **_App/Config/App.php_**
 
+```php
     [Line 26]   public $baseURL = 'http://localhost/newprojectname';
+```
 
 **Note:** Your server should be configured to point at the **public** folder of your new CI4 project.
 Public folder contains the main **_.htaccess_** file and **_index.php_**. In CI4 it is meant to be the web root
@@ -114,51 +116,46 @@ Apart from that you have two other options:
 1. Add `/public` to your BaseURL, but then you have to check if your `base_url()` calls in Controllers and
 Views are still working
 2. Move **_.htaccess_** and _**index.php**_ form public to root directory. Also edit _**index.php**_
-````
+```php
     [Line 20]   $pathsConfig = FCPATH . '../app/Config/Paths.php';
     to
     [Line 20]   $pathsConfig = FCPATH . '/app/Config/Paths.php';
-````
+```
 
 ---
 
 ### Language, Localization
 
-- Load/Set Language
+
 
 The CI3 Language Loading in Controllers is no longer supported and was removed by CI-Upgrader:
 
 ```php
-    CI3
+//  CI3 Example
 
-    Load File and set Language in Controller:  $this->lang->load('news', $lang);
+//  Load File and set Language in Controller:  
+    $this->lang->load('news', $lang);
     
-    Echo Language Lines in Controllers or Views:  echo $this->lang->line('title');
+//  Echo Language Line in Controllers or Views: 
+    echo $this->lang->line('title');
 ```
 
 Instead of this, you have to use CI4 Localization:
 
-	CI4
-
-      $language = \Config\Services::language();
-		$language->setLocale($lang);
-
-
 ```php
-namespace App\Controllers; // Add
+//  CI4 Example
 
-use Kenjis\CI3Compatible\Core\CI_Controller; // Add
+//  Load Language Service and set Locale: 
+    $language = \Config\Services::language();
+    $language->setLocale($lang);
 
-class News extends CI_Controller
-{
-    ...
-}
+//  Load File and echo Language Line in Controllers or Views:
+    echo lang('news_lang.title');
 ```
-Best way to use 
 
-$language load + setlocal einsetzten da
-$this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn
-alle Controller diese erweitern
+Best way to load Language Service and to set Locale is in every Controllers Constructor or globally 
+in BaseController (If all Controllers extend BaseController).
+
 
 - Echo Language Lines
 
