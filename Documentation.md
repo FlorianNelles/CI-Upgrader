@@ -36,8 +36,6 @@ Check if all these requirements are met:
 
 Download CI-Upgrader and unzip folder.
 
----
-
 ### Step 1: Start CI-Upgrader
 There are to ways to start CI-Upgrader:
 
@@ -100,8 +98,6 @@ from CodeIgniter and the documentation of Kenjis Suzukas
 
 ### What needs to be done afterwards
 
----
-
 #### Base URL
 baseurl, in app.php, public aus url entfernen, aufrufe von baseurl im project
 
@@ -112,12 +108,18 @@ language, Filename in lang lines (Views and Controller), $language load + setloc
 $this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn 
 alle Controller diese erweitern
 
+---
+
 #### Database Migrations
 Databse Migration durchführen: evt neue Database anlegen und in Database.php anpassen
 cmd -> zum CI4-Projektordner navigieren -> php spark migrate
 
+---
+
 #### Databse Seeder
 Databse Seeder: SeederFiles erstellen und ausführen (php spark db:seed SeederName)nach CI4 Dokumentation
+
+---
 
 #### Working with Databse, Query Builder
 Working with database; funktionen welche nicht funktinieren auflisten, $db = config... einfügen je nach funktion
