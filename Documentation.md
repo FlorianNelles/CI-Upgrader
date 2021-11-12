@@ -36,6 +36,8 @@ Check if all these requirements are met:
 
 Download CI-Upgrader and unzip folder.
 
+---
+
 ### Step 1: Start CI-Upgrader
 There are to ways to start CI-Upgrader:
 
@@ -44,6 +46,8 @@ There are to ways to start CI-Upgrader:
 - **.jar:** Open 'CMD'  &#8594; Navigate to the location you saved 'ci-upgrader.jar' &#8594; Enter `java -jar ci-upgrader.jar`
 
 ( If its not working, try 'Run as administrator' )
+
+---
 
 ### Step 2: Enter Path to your CodeIgniter 3 Project
 
@@ -57,10 +61,14 @@ CI-Upgrader will check if your input is correct:
 - Check if input has invalid symbols
 - Check if path leads to a CodeIgniter 3 project
 
+---
+
 ### Step 3: Enter Name for your new CodeIgniter 4 Project
 
 You can name your new project whatever you want. Just make sure there is no already existing project
 with the same name in your CI3 project location. Also don´t use these symbols: `< > : ? * | \\ / "`
+
+---
 
 ### Step 4: Installation and Upgrade is running automatically
 This tool takes the settings from Step 2 and 3 to install your new CI4 project in the same directory 
@@ -92,8 +100,12 @@ from CodeIgniter and the documentation of Kenjis Suzukas
 
 ### What needs to be done afterwards
 
+---
+
 #### Base URL
 baseurl, in app.php, public aus url entfernen, aufrufe von baseurl im project
+
+---
 
 #### Language, Localization
 language, Filename in lang lines (Views and Controller), $language load + setlocal einsetzten da 
