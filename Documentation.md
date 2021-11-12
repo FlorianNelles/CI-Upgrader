@@ -124,11 +124,17 @@ Databse Seeder: SeederFiles erstellen und ausführen (php spark db:seed SeederNa
 #### Working with Databse, Query Builder
 Working with database; funktionen welche nicht funktinieren auflisten, $db = config... einfügen je nach funktion
 
+---
+
 #### Pagination
 Pagination manuell überführen (mit kenjis Anleitung oder UPgrade Guide, falls auf kenjis verzichtet)
 
+---
+
 #### Cookies
 Cookie Anpassen, Funktionen, Aufrufe, Load?
+
+---
 
 #### Own created Files, Classes etc.
 Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell kopieren
@@ -148,11 +154,19 @@ kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
 Config/Boot/production.php -> value =1 (Sonst Meldung whoops wenn Errors auftreten, was nach
 Upgrade erstmal wahrscheinlich ist; Daher während Anpassungen auf 1 stellen)
 
+---
+
 assets files falls nicht gefunden und kopiert
+
+---
 
 View Parser funktionieren vollständig mit Kenjishelper, allerdings funktioniert php 		
 Code in Views nicht, wenn parse genutzt wird, bessere Alternative in CI4
 
+---
+
 redirect Aufrufe anpassen(code entfernen?)
+
+---
 
 error files, show_error
