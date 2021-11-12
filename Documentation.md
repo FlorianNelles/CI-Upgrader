@@ -5,6 +5,8 @@
 - [Run CI-Upgrader](#run-ci-upgrader)
 - [After the Upgrade](#after-the-upgrade)
   - [What needs to be done afterwards](#what-needs-to-be-done-afterwards)
+  - [Extend your Project](#extend-your-project)
+  - [Reomve Upgrader-Helper by Kenjis Suzuka](#remove-upgrade-helper-by-kenji-suzuka)
   - [Problem Solving](#problem-solving)
   
 
@@ -101,7 +103,23 @@ from CodeIgniter and the documentation of Kenjis Suzukas
 ### What needs to be done afterwards
 
 - #### Base URL
-baseurl, in app.php, public aus url entfernen, aufrufe von baseurl im project
+Depending on your server settings, you have to adjust your BaseURL in **_App/Config/App.php_**
+
+    [Line 26]   public $baseURL = 'http://localhost/newprojectname';
+
+**Note:** Your server should be configured to point at the **public** folder of your new CI4 project.
+Public folder contains the main **_.htaccess_** file and **_index.php_**. In CI4 it is meant to be the web root
+and prevents direct access to your source code.
+
+Apart from that you have two other options:
+1. Add `/public` to your BaseURL, but then you have to check if your `base_url()` calls in Controllers and
+Views are still working
+2. Move **_.htaccess_** and _**index.php**_ form public to root directory. Also edit _**index.php**_
+````
+    [Line 20]   $pathsConfig = FCPATH . '../app/Config/Paths.php';
+    to
+    [Line 20]   $pathsConfig = FCPATH . '/app/Config/Paths.php';
+````
 
 ---
 
@@ -143,7 +161,7 @@ Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell 
 
 ---
 
-### Extend your project
+### Extend your Project
 
 ci3 und ci4 code möglich
 
@@ -157,24 +175,35 @@ kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
 
 ---
 
+### Develper Mode
+
+.env
+
+---
+
 ### Problem Solving
 
+- #### Config Production
 Config/Boot/production.php -> value =1 (Sonst Meldung whoops wenn Errors auftreten, was nach
 Upgrade erstmal wahrscheinlich ist; Daher während Anpassungen auf 1 stellen)
 
 ---
 
+- #### Assests Files
 assets files falls nicht gefunden und kopiert
 
 ---
 
+- #### View Parser
 View Parser funktionieren vollständig mit Kenjishelper, allerdings funktioniert php 		
 Code in Views nicht, wenn parse genutzt wird, bessere Alternative in CI4
 
 ---
 
+- #### Redirect
 redirect Aufrufe anpassen(code entfernen?)
 
 ---
 
+- #### Error Files
 error files, show_error
