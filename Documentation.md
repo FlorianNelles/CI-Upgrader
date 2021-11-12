@@ -79,6 +79,8 @@ your system. Go to [GetComposer](https://getcomposer.org/) and follow the instru
 After the installation, CI-Upgrader starts to copy all the relevant files from the old to new project,
 transfer settings, edit files and create UpgradeLog.
 
+---
+
 ## After the Upgrade
 
 When CI-Upgrader is finished with the upgrade process, the directory of your new CI4 project and the UpgradeLog 
@@ -98,56 +100,62 @@ from CodeIgniter and the documentation of Kenjis Suzukas
 
 ### What needs to be done afterwards
 
-#### Base URL
+- #### Base URL
 baseurl, in app.php, public aus url entfernen, aufrufe von baseurl im project
 
 ---
 
-#### Language, Localization
+- #### Language, Localization
 language, Filename in lang lines (Views and Controller), $language load + setlocal einsetzten da 
 $this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn 
 alle Controller diese erweitern
 
 ---
 
-#### Database Migrations
+- #### Database Migrations
 Databse Migration durchführen: evt neue Database anlegen und in Database.php anpassen
 cmd -> zum CI4-Projektordner navigieren -> php spark migrate
 
 ---
 
-#### Databse Seeder
+- #### Databse Seeder
 Databse Seeder: SeederFiles erstellen und ausführen (php spark db:seed SeederName)nach CI4 Dokumentation
 
 ---
 
-#### Working with Databse, Query Builder
+- #### Working with Databse, Query Builder
 Working with database; funktionen welche nicht funktinieren auflisten, $db = config... einfügen je nach funktion
 
 ---
 
-#### Pagination
+- #### Pagination
 Pagination manuell überführen (mit kenjis Anleitung oder UPgrade Guide, falls auf kenjis verzichtet)
 
 ---
 
-#### Cookies
+- #### Cookies
 Cookie Anpassen, Funktionen, Aufrufe, Load?
 
 ---
 
-#### Own created Files, Classes etc.
+- #### Own created Files, Classes etc.
 Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell kopieren
+
+---
 
 ### Extend your project
 
 ci3 und ci4 code möglich
+
+---
 
 ### Remove Upgrade-Helper by Kenji Suzuka
 
 use statement entfernen; manuell in ci4 überführen (upgrade guide)
 
 kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
+
+---
 
 ### Problem Solving
 
