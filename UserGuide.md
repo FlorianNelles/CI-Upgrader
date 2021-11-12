@@ -15,7 +15,6 @@
   - [Solving Problems](#solving-problems)
 
 ## Before the Upgrade
-
 Check if all these requirements are met:
 
 - Windows system (Linux and macOS **not** supported)
@@ -39,7 +38,6 @@ Check if all these requirements are met:
 ```
 
 ## Run CI-Upgrader
-
 Download CI-Upgrader and unzip folder.
 
 ### Step 1: Start CI-Upgrader
@@ -54,7 +52,6 @@ There are to ways to start CI-Upgrader:
 ---
 
 ### Step 2: Enter Path to your CodeIgniter 3 Project
-
 The Path has to be in this format: `Drive\Path\To\Your\CI3_Project` (Example: `C:\xampp\htdocs\projectname`)
 
 Best way to get the path: Open Windows Explorer &#8594;  Navigate to your CI3 project that you want 
@@ -68,7 +65,6 @@ CI-Upgrader will check if your input is correct:
 ---
 
 ### Step 3: Enter Name for your new CodeIgniter 4 Project
-
 You can name your new project whatever you want. Just make sure there is no already existing project
 with the same name in your CI3 project location. Also don´t use these symbols: `< > : ? * | \\ / "`
 
@@ -88,7 +84,6 @@ transfer settings, edit files and create UpgradeLog.
 ---
 
 ## After the Upgrade
-
 When CI-Upgrader is finished with the upgrade process, the directory of your new CI4 project and the UpgradeLog 
 are going to open on your screen.
 
@@ -128,18 +123,53 @@ Views are still working
 ---
 
 ### Language, Localization
-language, Filename in lang lines (Views and Controller), $language load + setlocal einsetzten da 
-$this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn 
+
+- Load/Set Language
+
+The CI3 Language Loading in Controllers is no longer supported and was removed by CI-Upgrader:
+
+```php
+    CI3
+
+    Load File and set Language in Controller:  $this->lang->load('news', $lang);
+    
+    Echo Language Lines in Controllers or Views:  echo $this->lang->line('title');
+```
+
+Instead of this, you have to use CI4 Localization:
+
+	CI4
+
+      $language = \Config\Services::language();
+		$language->setLocale($lang);
+
+
+```php
+namespace App\Controllers; // Add
+
+use Kenjis\CI3Compatible\Core\CI_Controller; // Add
+
+class News extends CI_Controller
+{
+    ...
+}
+```
+Best way to use 
+
+$language load + setlocal einsetzten da
+$this->lang->load('file','value') entfernet werden musste, kann auch in BaseController gemacht werden, wenn
 alle Controller diese erweitern
 
----
+- Echo Language Lines
 
+Filename in lang lines (Views and Controller), 
+
+---
 ### Database 
 **Note:** CI-Upgrader takes your database settings from your old CI3 project and transfers them into CI4 _**App/Config/Database.php**_,
 so your new project is connected to the same database by default. You can easily change this settings in _**Database.php**_ if you want.
 
 - #### Migrations
-
 All Migrations files were transferred into CI4 syntax by CI-Upgrader. To run Migrations, all you have to do:
 
 1. Open 'CMD'  &#8594;  Navigate to your project location
@@ -152,7 +182,6 @@ More informations: CodeIgniter [User Guide](https://codeigniter4.github.io/userg
 longer needed in most cases. In case you still want to use this Controller, you have convert it by yourself.
 
 - #### Seeding
-
 CodeIgniter 3 has no Seeder Class, so you had to find your onw way to create Seeder files and to run them.
 In contrast to this CodeIgniter 4 provides an own Class for Seeder and you should use it.
 
@@ -161,7 +190,6 @@ In contrast to this CodeIgniter 4 provides an own Class for Seeder and you shoul
 3. Enter `> php spark db:seed SeederName`
 
 - #### Query Builder
-
 These three CI3 Query functions are **not** supported by Kenjis Suzuka Upgrade-Helper and will not run in CI4:
 
 `group_by()`, `limit()` and  `update()`
@@ -171,26 +199,30 @@ If you use them, you have to change it to CI4 Query Builder ([User Guide](https:
 Example:
 
 ````
-        $query = $this->db->select('title')
-                          ->from('News')
-                          ->where('id', $id)
-                          ->group_by('created_at')
-                          ->limit(10,20)
-                          get();                   
+   $query = $this->db->select('title')
+                     ->from('News')
+                     ->where('id', $id)
+                     ->group_by('created_at')
+                     ->limit(10,20)
+                     get();                   
 to
-        $db = \Config\Database::connect();
-        $builder = $db->table('News');
-        $query = $builder->select('title')
-                          ->where('id', $id)
-                          ->groupBy('created_at')
-                          ->limit(10,20)
-                          ->get();
+   $db = \Config\Database::connect();
+   $builder = $db->table('News');
+   $query = $builder->select('title')
+                     ->where('id', $id)
+                     ->groupBy('created_at')
+                     ->limit(10,20)
+                     ->get();
 ````
 
 ---
 
 ### Pagination
-Pagination manuell überführen (mit kenjis Anleitung oder UPgrade Guide, falls auf kenjis verzichtet)
+Open Kenji Suzukas [User Guide](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md#pagination) 
+and follow instructions to transfer Pagination to CodeIgniter 4.
+
+If you don´t want to use Kenji Suzuka Upgrade-Helper and removed it, follow instructions of official
+CodeIgniter [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_pagination.html).
 
 ---
 
