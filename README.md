@@ -4,7 +4,7 @@ CI-Upgrader will help you to upgrade your CodeIgniter 3 project to CodeIgniter 4
 
 To do this, CI-Upgrader transfers a lot of CI3 files and code into CI4 Syntax, but takes also usage 
 of the [ci3-to-4-upgrader-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper) 
-by Kenji Suzuka. Kenjis upgrader-helper provides interfaces for common use cases in CodeIgniter, to make them 
+by Kenji Suzuki. Kenjis upgrader-helper provides interfaces for common use cases in CodeIgniter, to make them 
 compatible and executable in CI4.
 
 This tool is most suitable for developers who want to perform a quick upgrade of there CI3 project 
