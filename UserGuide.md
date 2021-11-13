@@ -185,7 +185,7 @@ In contrast to this CodeIgniter 4 provides an own Class for Seeder and you shoul
 3. Enter `> php spark db:seed SeederName`
 
 - #### Query Builder
-These three CI3 Query functions are **not** supported by Kenjis Suzuka Upgrade-Helper and will not run in CI4:
+These three CI3 Query functions are **not** fully supported by Kenjis Suzuka Upgrade-Helper and will not run in CI4:
 
 `group_by()`, `limit()` and  `update()`
 
@@ -222,30 +222,60 @@ CodeIgniter [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installa
 ---
 
 ### Input/Incoming Request Class
-Cookie Anpassen, Funktionen, Aufrufe, Load?
+
+CodeIgniter 3 Input Class is no longer available in CodeIgniter 4 and was replaced by the 
+new Incoming Request Class. 
+
+Check out CI3 [Input Class](https://codeigniter.com/userguide3/libraries/input.html) 
+and CI4 [Incoming Request Class](https://codeigniter4.github.io/userguide/incoming/incomingrequest.html) 
+User Guides, compare both with each other and transfer your code manually.
 
 ---
 
-### Own created Files, Classes etc.
-Eigene Dateien (Libraries, Hooks, Custom config files(bsp Validations)) manuell kopieren
+### Own created Files
+
+CI-Upgrader does not copy and transfer your own created Hooks or Custom Config Files in your new
+CI4 project, so you have to do this manually. 
+
+On the other hand your own Helpers and Libraries are copied. However you should also take a look on them, if there
+still working in CodeIgniter 4.
+
+Kenjis Suzukas [User Guides](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md) 
+gives you some useful informations, how to handle your own created files.
+
+---
+
+### Development Mode
+
+While working on your project the Development Mode can be very helpful and gives you a lot of useful informations.
+
+1. Rename the file `env` to `.env` in your root directory
+2. Open `.env` and change line `# CI_ENVIRONMENT = production` to `CI_ENVIRONMENT = development`
 
 ---
 
 ### Extend your Project
 
-ci3 und ci4 code möglich
+To extend your project you have either the option to use CI3 syntax in combination with Kenji Suzukas
+Upgrader-Helper or to use the new CI4 syntax, which is probably the better choice for the future of your project.
 
-- #### Develper Mode
-
-.env
+However you should make your choice depending on your project and your future plans with it,
+your CI3 or CI4 knowledge and also what parts you want to extend and how Kenjis Suzukas Upgrade 
+Helper supports them.
 
 ---
 
 ### Remove Upgrade-Helper by Kenji Suzuka
 
-use statement entfernen; manuell in ci4 überführen (upgrade guide)
+If you don´t want to use Upgrade-Helper by Kenjis Suzuka, you have the opportunity ro remove it.
+You can either remove it from selected files or globally from your project.
 
-kann in einzelnen files aber auch global gemacht werden(ordner kenjis löschen)
+1. Check UpgradeLog to see in which files the line `use Kenjis\CI3Compatible\...` was added and remove it
+2. (**Globally**) Delete folder `kenjis` in vendor directory
+3. Transfer the affected files manually in CI4 Syntax. Official CodeIgniter [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_4xx.html) 
+will help you with this
+
+**Note:** Depending on your project, thats going to be a lot of work.
 
 ---
 
