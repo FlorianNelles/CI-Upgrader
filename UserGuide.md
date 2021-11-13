@@ -11,7 +11,7 @@
   - [Cookies](#)
   - [Own created Files, Classes etc.](#)
   - [Extend your Project](#extend-your-project)
-  - [Reomve Upgrader-Helper by Kenjis Suzuka](#remove-upgrade-helper-by-kenji-suzuka)
+  - [Reomve Upgrader-Helper by Kenjis Suzuki](#remove-upgrade-helper-by-kenji-suzuki)
   - [Solving Problems](#solving-problems)
 
 ## Before the Upgrade
@@ -73,7 +73,7 @@ with the same name in your CI3 project location. Also don´t use these symbols: 
 ### Step 4: Installation and Upgrade is running automatically
 This tool takes the settings from Step 2 and 3 to install your new CI4 project in the same directory 
 as your old CI3 project. The installation includes phpunit and [ci3-to-4-upgrader-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper)
-by Kenji Suzuka.
+by Kenji Suzuki.
 
 CI-Upgrader checks, if installation was successful. If not, you probably don´t have Composer installed on 
 your system. Go to [GetComposer](https://getcomposer.org/) and follow the instructions to install Composer.
@@ -96,7 +96,7 @@ has executed:
 It is highly recommended to take a look on the UpgradeLog, because it gives you a better understanding
 on what this tool has done during the upgrade and what you have to do afterwards. You should also check
 out the official [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_4xx.html) 
-from CodeIgniter and the documentation of Kenjis Suzukas 
+from CodeIgniter and the documentation of Kenjis Suzukis 
 [upgrade-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md).
 
 
@@ -185,7 +185,7 @@ In contrast to this CodeIgniter 4 provides an own Class for Seeder and you shoul
 3. Enter `> php spark db:seed SeederName`
 
 - #### Query Builder
-These three CI3 Query functions are **not** fully supported by Kenjis Suzuka Upgrade-Helper and will not run in CI4:
+These three CI3 Query functions are **not** fully supported by Kenjis Suzuki Upgrade-Helper and will not run in CI4:
 
 `group_by()`, `limit()` and  `update()`
 
@@ -213,10 +213,10 @@ to
 ---
 
 ### Pagination
-Open Kenji Suzukas [User Guide](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md#pagination) 
+Open Kenji Suzukis [User Guide](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md#pagination) 
 and follow instructions to transfer Pagination to CodeIgniter 4.
 
-If you don´t want to use Kenji Suzuka Upgrade-Helper and removed it, follow instructions of official
+If you don´t want to use Kenji Suzukis Upgrade-Helper and removed it, follow instructions of official
 CodeIgniter [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_pagination.html).
 
 ---
@@ -240,7 +240,7 @@ CI4 project, so you have to do this manually.
 On the other hand your own Helpers and Libraries are copied. However you should also take a look on them, if there
 still working in CodeIgniter 4.
 
-Kenjis Suzukas [User Guides](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md) 
+Kenjis Suzukis [User Guides](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md) 
 gives you some useful informations, how to handle your own created files.
 
 ---
@@ -256,18 +256,18 @@ While working on your project the Development Mode can be very helpful and gives
 
 ### Extend your Project
 
-To extend your project you have either the option to use CI3 syntax in combination with Kenji Suzukas
+To extend your project you have either the option to use CI3 syntax in combination with Kenji Suzukis
 Upgrader-Helper or to use the new CI4 syntax, which is probably the better choice for the future of your project.
 
 However you should make your choice depending on your project and your future plans with it,
-your CI3 or CI4 knowledge and also what parts you want to extend and how Kenjis Suzukas Upgrade 
+your CI3 or CI4 knowledge and also what parts you want to extend and how Kenjis Suzukis Upgrade 
 Helper supports them.
 
 ---
 
-### Remove Upgrade-Helper by Kenji Suzuka
+### Remove Upgrade-Helper by Kenji Suzuki
 
-If you don´t want to use Upgrade-Helper by Kenjis Suzuka, you have the opportunity ro remove it.
+If you don´t want to use Upgrade-Helper by Kenjis Suzuki, you have the opportunity ro remove it.
 You can either remove it from selected files or globally from your project.
 
 1. Check UpgradeLog to see in which files the line `use Kenjis\CI3Compatible\...` was added and remove it
@@ -281,20 +281,43 @@ will help you with this
 
 ### Solving Problems
 
-- #### Config Production
-Config/Boot/production.php -> value =1 (Sonst Meldung whoops wenn Errors auftreten, was nach
-Upgrade erstmal wahrscheinlich ist; Daher während Anpassungen auf 1 stellen)
+- #### Whoops!  Message
+
+This messages appears when an error occurs and your project is in Production Mode or displaying errors are off (Default Settings).
+After CI-Upgrader transfers your project, there will be some errors and you have to fix them. The only way
+to fix them is to display errors and see, what causes these errors.
+
+There two ways:
+1. Set project in Development Mode
+2. Turn 'display errors' on
+
+_**App/Config/Boot/production.php**_
+
+```php
+    [Line 10]   ini_set('display_errors', '0');
+ to
+    [Line 10]   ini_set('display_errors', '1');
+```
+
+**Note:** After you finished your work, you should switch back to Production Mode and turn 'display errors' off
 
 ---
 
-- #### Assests Files
-assets files falls nicht gefunden und kopiert
+- #### Assests Files not found
+Usually you would create a new folder named 'assets' in your root or application directory and save 
+here all your Images, CSS and JS Files.
+
+If you used another name for your folder or saved them at a different location, CI-Upgrader will not find
+these files and can not copy them to your new project. In this case, you have to copy your files manually.
 
 ---
 
 - #### View Parser
-View Parser funktionieren vollständig mit Kenjishelper, allerdings funktioniert php 		
-Code in Views nicht, wenn parse genutzt wird, bessere Alternative in CI4
+View Parser is supported by Kenji Suzukis Upgrade-Helper, however the official CodeIgniter User Guide
+does not recommend to use this Class in CI4 anymore. Reason for this, PHP Code is going to be ignored in 
+Views which use Parser, and that causes problems.
+
+Better option in CI4 is to use pure PHP Code or [View Render Class](https://codeigniter4.github.io/userguide/outgoing/view_renderer.html).
 
 ---
 
