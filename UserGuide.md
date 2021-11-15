@@ -12,7 +12,7 @@
   - [Own created Files](#own-created-files)
   - [Development Mode](#development-mode)
   - [Extend your Project](#extend-your-project)
-  - [Reomve Upgrader-Helper by Kenjis Suzuki](#remove-upgrade-helper-by-kenji-suzuki)
+  - [Reomve Upgrader-Helper by Kenji Suzuki](#remove-upgrade-helper-by-kenji-suzuki)
   - [Solving Problems](#solving-problems)
 
 ## Before the Upgrade
@@ -44,9 +44,9 @@ Download CI-Upgrader and unzip folder.
 ### Step 1: Start CI-Upgrader
 There are to ways to start CI-Upgrader:
 
-- **.exe:** Just doubleclick on ci-upgrader.exe  
+- **.exe:** Just doubleclick on CI-Upgrader.exe  
 
-- **.jar:** Open 'CMD'  &#8594; Navigate to the location you saved 'ci-upgrader.jar' &#8594; Enter `java -jar ci-upgrader.jar`
+- **.jar:** Open 'CMD'  &#8594; Navigate to the location you saved 'CI-Upgrader.jar' &#8594; Enter `> java -jar CI-Upgrader.jar`
 
 ( If its not working, try 'Run as administrator' )
 
@@ -97,7 +97,7 @@ has executed:
 It is highly recommended to take a look on the UpgradeLog, because it gives you a better understanding
 on what this tool has done during the upgrade and what you have to do afterwards. You should also check
 out the official [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_4xx.html) 
-from CodeIgniter and the documentation of Kenjis Suzukis 
+from CodeIgniter and the documentation of Kenji Suzukis 
 [upgrade-helper](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md).
 
 
@@ -186,7 +186,7 @@ In contrast to this CodeIgniter 4 provides an own Class for Seeder and you shoul
 3. Enter `> php spark db:seed SeederName`
 
 - #### Query Builder
-These three CI3 Query functions are **not** fully supported by Kenjis Suzuki Upgrade-Helper and will not run in CI4:
+These three CI3 Query functions are **not** fully supported by Kenji Suzukis Upgrade-Helper and will not run in CI4:
 
 `group_by()`, `limit()` and  `update()`
 
@@ -241,7 +241,7 @@ CI4 project, so you have to do this manually.
 On the other hand your own Helpers and Libraries are copied. However you should also take a look on them, if there
 still working in CodeIgniter 4.
 
-Kenjis Suzukis [User Guides](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md) 
+Kenji Suzukis [User Guides](https://github.com/kenjis/ci3-to-4-upgrade-helper/blob/1.x/docs/HowToUpgradeFromCI3ToCI4.md) 
 gives you some useful informations, how to handle your own created files.
 
 ---
@@ -261,14 +261,14 @@ To extend your project you have either the option to use CI3 syntax in combinati
 Upgrader-Helper or to use the new CI4 syntax, which is probably the better choice for the future of your project.
 
 However you should make your choice depending on your project and your future plans with it,
-your CI3 or CI4 knowledge and also what parts you want to extend and how Kenjis Suzukis Upgrade 
+your CI3 or CI4 knowledge and also what parts you want to extend and how Kenji Suzukis Upgrade 
 Helper supports them.
 
 ---
 
 ### Remove Upgrade-Helper by Kenji Suzuki
 
-If you don´t want to use Upgrade-Helper by Kenjis Suzuki, you have the opportunity ro remove it.
+If you don´t want to use Upgrade-Helper by Kenji Suzuki, you have the opportunity ro remove it.
 You can either remove it from selected files or globally from your project.
 
 1. Check UpgradeLog to see in which files the line `use Kenjis\CI3Compatible\...` was added and remove it
