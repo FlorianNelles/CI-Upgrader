@@ -33,7 +33,7 @@ public class UpgradeLog {
 
         afterupgrade = afterupgrade + "\n################################################################################\n\n";
 
-        afterupgrade = afterupgrade + "Check out the documentation of CI-Upgrader. Here you will find all informations about the tasks you have to do after the upgrade. " +
+        afterupgrade = afterupgrade + "Check out the User-Guide of CI-Upgrader. Here you will find all informations about the tasks you have to do after the upgrade. " +
                 "\n(https://github.com/FlorianNelles/CI-Upgrader/blob/main/Documentation.md#after-the-upgrade)\n";
 
         return afterupgrade;
