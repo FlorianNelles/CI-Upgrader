@@ -11,7 +11,7 @@ This tool is most suitable for developers who want to perform a quick upgrade of
 with as little work as possible. If you want to extend your project after the upgrade, you have the option
 to use CI3 and CI4 syntax in the most parts of your code. 
 
-On the other hand, you have also the opportunity to remove kenjis upgrade-helper from selected files or
+On the other hand, you have also the opportunity to remove Kenji Suzukis upgrade-helper from selected files or
 even from the whole project. In this case, you have to transfer the affected code manually into CI4 syntax.
 For this it is recommended to take a look at the [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_4xx.html) 
 of the official documentation, which will be of great help in this regard.
@@ -27,7 +27,7 @@ These following tasks are carried out automatically by CI-Upgrader:
   - Copies all relevant directories and files from the old CI3 to the new CI4 project
 - **Edit Files**
   - Convert CI3 files/settings into CI4 (Config, Languages, Migrations, Routes)
-  - Use kenjis upgrade-helper to make CI3 code compatible (Controllers, Models, Libraries)
+  - Use Kenji Suzukis upgrade-helper to make CI3 code compatible (Controllers, Models, Libraries)
 - **Create UpgradeLog**
   - This created file contains all informations about the upgrade process and all tasks the CI-Upgrader has executed
 
