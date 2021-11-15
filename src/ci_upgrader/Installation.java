@@ -219,9 +219,9 @@ public class Installation {
 
         upgradelog = upgradelog + "\n################################################################################\n\n";
 
-        upgradelog = upgradelog + "Your CodeIgniter 3 source project is '" + oldname + "' (Path: '" + path_ci3 + "')\n\n" +
-                "New CodeIgniter 4 project '" + newname + "' was successfully installed (Path: '" + path_ci4 + "')\n\n" +
-                "This installation includes the ci3-to-4-upgrade-helper from kenjis (For more informations: https://github.com/kenjis/ci3-to-4-upgrade-helper).";
+        upgradelog = upgradelog + "Your CodeIgniter 3 source project is '" + oldname + "' (Path: '" + path_ci3 + "').\n\n" +
+                "New CodeIgniter 4 project '" + newname + "' was successfully installed (Path: '" + path_ci4 + "').\n\n" +
+                "This installation includes the ci3-to-4-upgrade-helper from Kenji Suzuki (For more informations: https://github.com/kenjis/ci3-to-4-upgrade-helper).";
 
         upgradelog = upgradelog + "\n\n################################################################################\n";
 
