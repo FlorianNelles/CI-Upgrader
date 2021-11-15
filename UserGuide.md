@@ -318,13 +318,3 @@ does not recommend to use this Class in CI4 anymore. Reason for this, PHP Code i
 Views which use Parser, and that causes problems.
 
 Better option in CI4 is to use pure PHP Code or [View Render Class](https://codeigniter4.github.io/userguide/outgoing/view_renderer.html).
-
----
-
-- #### Redirect
-redirect Aufrufe anpassen(code entfernen?)
-
----
-
-- #### Error Files
-error files, show_error
