@@ -50,8 +50,8 @@ after the upgrade, check out [User Guide](https://github.com/FlorianNelles/CI-Up
 Here you can see an example of a simple CodeIgniter 3 project, which was 
 transferred to CodeIgniter 4 with CI-Upgrader.
 
-- CodeIgniter 3: [Testci3](link)
-- CodeIgniter 4: [Testci4](link)
+- CodeIgniter 3: [test_ci3](https://github.com/FlorianNelles/test_ci3)
+- CodeIgniter 4: [test_ci3_upgrade_to_ci4](https://github.com/FlorianNelles/test_ci3_upgrade_to_ci4)
 
 ## Development
 This repository contains the source code of CI-Upgrader, so fell free to take it.
