@@ -106,7 +106,7 @@ public class EditFiles {
                                     "You should consider, that the CI-Upgrader can not transfer all files and functions of your CI3 project without " +
                                     "errors into CI4. For more informations about the adjustments you have to make or what can cause errors after the Upgrade, take a look at section '4. WHAT TO DO AFTER CI-UPGRADER.'\n\n" +
                                     "The CI-Upgrader transferred all your settings from the most important Config files (autoload.php, config.php, database.php, migration.php, routes.php) and " +
-                                    "a lot of code from your Models, Views, Controllers, Libraries, Languages, and Migrations files with the help of the ci3-to-4-upgrade-helper from kenjis in CI4.";
+                                    "a lot of code from your Models, Views, Controllers, Libraries, Languages, and Migrations files with the help of the ci3-to-4-upgrade-helper by Kenjis Suzuki in CI4.";
 
         upgradelog = upgradelog + "\n\n-------------------------------------------------------------------------------\n\n";
 
