@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Florian Nelles https://github.com/FlorianNelles
+Copyright (c) 2021 Florian Nelles https://github.com/FlorianNelles <br>
 Copyright (c) 2014-2019 British Columbia Institute of Technology
 Copyright (c) 2019-2021 CodeIgniter Foundation
 Copyright (c) 2021 Kenji Suzuki https://github.com/kenjis
