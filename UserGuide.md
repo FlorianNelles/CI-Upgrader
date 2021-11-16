@@ -23,7 +23,10 @@ Check if all these requirements are met:
   - To check if Composer is installed, open 'CMD' and enter `composer`
   - If the command 'composer' was not found, it´s not installed
   - In this case, open [GetComposer](https://getcomposer.org/) and follow the instructions to install Composer
-- Java ?
+- JRE 1.6.6 (or later)
+  - To check your Java Version, open 'CMD' and enter `java -version`
+  - If nothing displays or your Version is too old, visit 
+  [Java.com](https://www.java.com/en/download/manual.jsp) 
 - Executable CodeIgniter 3 project, that you want to upgrade to CodeIgniter 4
   - Must be saved locally on the system
   - The project structure must be unchanged from the original
