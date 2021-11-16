@@ -44,7 +44,7 @@ after the upgrade, check out [User Guide](https://github.com/FlorianNelles/CI-Up
 - Executable CodeIgniter 3 project
 - Windows system (Linux and macOs are **not** supported)
 - Composer installed 
-- Java ?
+- JRE 1.6.6 (or later)
 
 ## Sample Project 
 Here you can see an example of a simple CodeIgniter 3 project, which was 
