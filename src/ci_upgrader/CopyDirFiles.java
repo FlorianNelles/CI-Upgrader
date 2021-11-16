@@ -278,8 +278,8 @@ public class CopyDirFiles {
 
         upgradelog = upgradelog + "Here you can check out, which directories and files were copied from your old CI3 project to your new CI4 project. \n" +
                                 "If your are missing something, you have to copy it by your own hand. \n\n" +
-                                "The CI-Upgrader ran through your Views, Models, Controllers, Core (if exists, the Upgrader will just copy your MY_Controller.php from Core)," +
-                                " Migrations, Language, Libraries, Helper and Assets. \n" +
+                                "The CI-Upgrader ran through your Views, Models, Controllers, Core (if exists, the Upgrader will just copy your MY_Controller.php from Core), " +
+                                "Migrations, Language, Libraries, Helper and Assets. \n" +
                                 "(Assets if the most used name for the directory, which contains your img, css, js, etc... files. " +
                                 "If you use a different name in your CI3 project or if your assets folder is not in your root or application directory, the Upgrader will " +
                                 "not find and copy these files. In this case, you have to copy it manually.)";
