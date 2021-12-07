@@ -12,7 +12,7 @@
   - [Own created Files](#own-created-files)
   - [Development Mode](#development-mode)
   - [Extend your Project](#extend-your-project)
-  - [Reomve Upgrader-Helper by Kenji Suzuki](#remove-upgrade-helper-by-kenji-suzuki)
+  - [Remove Upgrader-Helper by Kenji Suzuki](#remove-upgrade-helper-by-kenji-suzuki)
   - [Solving Problems](#solving-problems)
 
 ## Before the Upgrade
