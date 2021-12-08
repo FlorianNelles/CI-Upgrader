@@ -58,3 +58,7 @@ This repository contains the source code of CI-Upgrader, so fell free to take it
 You can work with it, develop your own tool or try to improve CI-Upgrader.
 
 Pull Requests are very welcome.
+
+<a href="https://trackgit.com">
+<img src="https://us-central1-trackgit-analytics.cloudfunctions.net/token/ping/kwxjbcaqzqirily9e8ik" alt="trackgit-views" />
+</a>
