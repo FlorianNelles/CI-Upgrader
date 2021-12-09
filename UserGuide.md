@@ -181,7 +181,7 @@ More informations: CodeIgniter [User Guide](https://codeigniter4.github.io/userg
 longer needed in most cases. In case you still want to use this Controller, you have convert it by yourself.
 
 - #### Seeding
-CodeIgniter 3 has no Seeder Class, so you had to find your onw way to create Seeder files and to run them.
+CodeIgniter 3 has no Seeder Class, so you had to find your own way to create Seeder files and to run them.
 In contrast to this CodeIgniter 4 provides an own Class for Seeder and you should use it.
 
 1. Create new Seeder files with CI4 Seeder Class and transfer your data ([User Guide](https://codeigniter4.github.io/userguide/dbmgmt/seeds.html))
