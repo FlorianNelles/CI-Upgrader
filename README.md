@@ -16,6 +16,8 @@ even from the whole project. In this case, you have to transfer the affected cod
 For this it is recommended to take a look at the [Upgrade Guide](https://codeigniter4.github.io/CodeIgniter4/installation/upgrade_4xx.html) 
 of the official documentation, which will be of great help in this regard.
 
+(This tool was created as a part of my bachelor thesis at University of Trier)
+
 ---
 
 These following tasks are carried out automatically by CI-Upgrader:
